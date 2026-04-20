@@ -11,6 +11,7 @@ import Button from '../components/ui/Button'
 import Badge from '../components/ui/Badge'
 import SectionTitle from '../components/ui/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import SEO from '../components/SEO'
 import { profil } from '../data/profil'
 
 function InstagramIcon({ size = 18 }) {
@@ -55,6 +56,10 @@ const bidangKajian = [
 export default function Profil() {
   return (
     <>
+      <SEO
+        title="Profil"
+        description="Riwayat pendidikan, bidang kajian, dan karya tulis Ustadz Fauzan Sugiyono."
+      />
       {/* ══════════ HEADER PROFIL ══════════ */}
       <section className="relative bg-gradient-to-br from-surface-50 via-surface-50 to-primary-50 -mt-20 pt-32 pb-16 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 geometric-pattern opacity-50" />
@@ -189,7 +194,7 @@ export default function Profil() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="bg-white rounded-2xl border-l-4 border-primary-400 border border-surface-200 shadow-sm hover:shadow-md transition-shadow p-6 md:p-8"
+                  className="bg-white rounded-2xl border border-surface-200 border-l-4 border-l-primary-400 shadow-sm hover:shadow-md transition-shadow p-6 md:p-8"
                 >
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary-50 text-primary-500 mb-4">
                     <Icon size={24} />

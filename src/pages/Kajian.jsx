@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Search, SearchX, MessageCircle } from 'lucide-react'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import SEO from '../components/SEO'
 import MateriCard from '../components/MateriCard'
 import MateriModal from '../components/MateriModal'
 import { materiList } from '../data/materi'
@@ -31,6 +32,10 @@ export default function Kajian() {
 
   return (
     <>
+      <SEO
+        title="Materi Kajian"
+        description="Kitab dan kitab-kitab pilihan yang sedang dikaji oleh Ustadz Fauzan Sugiyono secara rutin."
+      />
       {/* ══════════ HERO ══════════ */}
       <section className="relative h-48 md:h-56 -mt-20 pt-20 flex items-center bg-gradient-to-br from-surface-50 via-surface-50 to-primary-50 overflow-hidden">
         <div className="absolute inset-0 geometric-pattern opacity-40" />

@@ -48,7 +48,7 @@ export default function Navbar() {
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `relative px-3 py-2 text-sm font-medium transition-colors ${
+                  `group relative px-3 py-2 text-sm font-medium transition-colors ${
                     isActive ? 'text-primary-400' : 'text-dark-700 hover:text-primary-400'
                   }`
                 }
@@ -56,11 +56,15 @@ export default function Navbar() {
                 {({ isActive }) => (
                   <>
                     {item.label}
-                    {isActive && (
+                    {isActive ? (
                       <motion.span
                         layoutId="nav-underline"
                         className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-primary-400 rounded-full"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    ) : (
+                      <span
+                        className="pointer-events-none absolute left-3 right-3 -bottom-0.5 h-0.5 bg-primary-400/60 rounded-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"
                       />
                     )}
                   </>

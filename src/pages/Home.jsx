@@ -6,6 +6,7 @@ import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import SectionTitle from '../components/ui/SectionTitle'
 import ScrollReveal from '../components/ui/ScrollReveal'
+import SEO from '../components/SEO'
 import { profil } from '../data/profil'
 import { materiList } from '../data/materi'
 
@@ -39,6 +40,10 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="Beranda"
+        description="Kajian Islam bersama Ustadz Fauzan Sugiyono - Pengkaji Fikih Muamalah dan Tafsir Al-Qur'an."
+      />
       {/* ══════════ HERO ══════════ */}
       <section className="relative min-h-screen -mt-20 pt-20 flex items-center bg-surface-50 overflow-hidden">
         <div className="absolute inset-0 geometric-pattern opacity-60" />

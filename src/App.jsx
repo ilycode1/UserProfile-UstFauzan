@@ -1,11 +1,15 @@
-import { useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import Layout from './components/layout/Layout'
-import Home from './pages/Home'
-import Profil from './pages/Profil'
-import Kajian from './pages/Kajian'
-import Video from './pages/Video'
-import Kegiatan from './pages/Kegiatan'
+import PageLoader from './components/ui/PageLoader'
+
+const Home = lazy(() => import('./pages/Home'))
+const Profil = lazy(() => import('./pages/Profil'))
+const Kajian = lazy(() => import('./pages/Kajian'))
+const Video = lazy(() => import('./pages/Video'))
+const Kegiatan = lazy(() => import('./pages/Kegiatan'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -15,17 +19,79 @@ function ScrollToTop() {
   return null
 }
 
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
 export default function App() {
+  const location = useLocation()
+
   return (
     <Layout>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/kajian" element={<Kajian />} />
-        <Route path="/video" element={<Video />} />
-        <Route path="/kegiatan" element={<Kegiatan />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route
+              path="/"
+              element={
+                <PageTransition>
+                  <Home />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/profil"
+              element={
+                <PageTransition>
+                  <Profil />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/kajian"
+              element={
+                <PageTransition>
+                  <Kajian />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/video"
+              element={
+                <PageTransition>
+                  <Video />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/kegiatan"
+              element={
+                <PageTransition>
+                  <Kegiatan />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <PageTransition>
+                  <NotFound />
+                </PageTransition>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
+      </Suspense>
     </Layout>
   )
 }
