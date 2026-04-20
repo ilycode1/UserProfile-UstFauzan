@@ -15,6 +15,19 @@ const sizeClasses = {
   lg: 'px-7 py-3.5 text-lg',
 }
 
+const motionCache = new Map()
+
+function resolveMotion(as) {
+  if (!as || as === 'button') return motion.button
+  if (typeof as === 'string') {
+    return motion[as] || motion.button
+  }
+  if (motionCache.has(as)) return motionCache.get(as)
+  const wrapped = motion.create ? motion.create(as) : motion(as)
+  motionCache.set(as, wrapped)
+  return wrapped
+}
+
 export default function Button({
   children,
   variant = 'primary',
@@ -23,7 +36,7 @@ export default function Button({
   className = '',
   ...props
 }) {
-  const Component = motion[as] || motion.button
+  const Component = resolveMotion(as)
 
   return (
     <Component
