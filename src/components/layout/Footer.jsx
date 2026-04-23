@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
+import { MdEmail } from "react-icons/md";
 
 function InstagramIcon({ size = 16, className = "" }) {
   return (
@@ -48,8 +49,8 @@ export default function Footer() {
             <h3 className="font-serif text-lg mb-3">Kontak</h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="https://wa.me/628568057474" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-primary-200 transition-colors">
-                  <MessageCircle size={16} /> 0856-8057-474
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-primary-200 transition-colors">
+                  <MdEmail size={16} /> test@gmail.com
                 </a>
               </li>
               <li>

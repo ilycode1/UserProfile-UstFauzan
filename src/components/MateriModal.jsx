@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X, MessageCircle, Calendar, MapPin, FileDown, BookOpen } from 'lucide-react'
+import { X, Mail, Calendar, MapPin, FileDown, BookOpen } from 'lucide-react'
 import Badge from './ui/Badge'
 import { profil } from '../data/profil'
 
-const waLink = `https://wa.me/62${profil.kontak.wa.replace(/^0/, '')}`
+const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${profil.kontak.email}`
 
 export default function MateriModal({ materi, open, onClose }) {
   const [isMobile, setIsMobile] = useState(false)
@@ -155,14 +155,16 @@ export default function MateriModal({ materi, open, onClose }) {
                 </a>
               )}
               <a
-                href={`${waLink}?text=${encodeURIComponent(
+                href={`${emailLink}&su=${encodeURIComponent(
+                  `Pendaftaran Kajian: ${materi.judul}`
+                )}&body=${encodeURIComponent(
                   `Assalamu'alaikum, saya ingin mendaftar kajian "${materi.judul}"`
                 )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-full text-sm font-medium bg-primary-400 text-white hover:bg-primary-500 transition-colors"
               >
-                <MessageCircle size={16} /> Daftar Kajian via WhatsApp
+                <Mail size={16} /> Daftar Kajian via Email
               </a>
             </div>
           </motion.div>

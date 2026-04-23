@@ -2,7 +2,7 @@ export const profil = {
   nama: "Fauzan Sugiyono",
   gelar: "",
   tagline: "Pengkaji Fikih Muamalah dan Tafsir Al-Qur'an",
-  foto: "/assets/images/foto-profil.jpg",
+  foto: "/assets/images/foto-profil.webp",
   quote: {
     teks: "Belajarlah iman, ilmu dan amal secara bersamaan",
     sumber: "Ibnu Mas'ud",
@@ -84,7 +84,7 @@ export const profil = {
   ],
   organisasi: [],
   kontak: {
-    wa: "08568057474",
+    email: "test@gmail.com",
     instagram: "fauzan.sugiyono",
     youtube: "",
     telegram: "",

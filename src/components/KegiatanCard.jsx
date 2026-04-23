@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, MessageCircle, Info } from 'lucide-react'
+import { Calendar, Clock, MapPin, Mail, Info } from 'lucide-react'
 import Badge from './ui/Badge'
 import { profil } from '../data/profil'
 
@@ -26,13 +26,13 @@ const jenisMap = {
   online: 'Online',
 }
 
-const defaultWa = `https://wa.me/62${profil.kontak.wa.replace(/^0/, '')}`
+const defaultEmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${profil.kontak.email}`
 
 export default function KegiatanCard({ kegiatan, onInfo }) {
   const status = statusMap[kegiatan.status] || statusMap.aktif
-  const waHref = kegiatan.kontak
-    ? `https://wa.me/${kegiatan.kontak.replace(/\D/g, '')}`
-    : defaultWa
+  const emailHref = kegiatan.kontak && kegiatan.kontak.includes('@')
+    ? `https://mail.google.com/mail/?view=cm&fs=1&to=${kegiatan.kontak}`
+    : defaultEmail
 
   return (
     <article className="group bg-white rounded-2xl border border-surface-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col md:flex-row">
@@ -100,14 +100,16 @@ export default function KegiatanCard({ kegiatan, onInfo }) {
             <Info size={14} /> Info
           </button>
           <a
-            href={`${waHref}?text=${encodeURIComponent(
+            href={`${emailHref}&su=${encodeURIComponent(
+              `Pertanyaan seputar: ${kegiatan.nama}`
+            )}&body=${encodeURIComponent(
               `Assalamu'alaikum, saya ingin bertanya seputar "${kegiatan.nama}"`
             )}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium bg-primary-400 text-white hover:bg-primary-500 transition-colors"
           >
-            <MessageCircle size={14} /> WhatsApp
+            <Mail size={14} /> test@gmail.com
           </a>
         </div>
       </div>

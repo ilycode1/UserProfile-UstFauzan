@@ -1,13 +1,12 @@
 import { useMemo, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
-import { Calendar, MessageCircle } from "lucide-react";
+import { Calendar, Mail } from "lucide-react";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import SEO from "../components/SEO";
 import KegiatanCard from "../components/KegiatanCard";
 import { kegiatanList } from "../data/kegiatan";
 import { profil } from "../data/profil";
-import { FaWhatsapp } from "react-icons/fa";
 
 const FILTERS = [
   { key: "semua", label: "Semua" },
@@ -16,7 +15,7 @@ const FILTERS = [
   { key: "online", label: "Online" },
 ];
 
-const waLink = `https://wa.me/62${profil.kontak.wa.replace(/^0/, "")}`;
+const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${profil.kontak.email}`;
 
 export default function Kegiatan() {
   const [active, setActive] = useState("semua");
@@ -102,12 +101,12 @@ export default function Kegiatan() {
                 <p className="text-white/85 mt-2 leading-relaxed">Undang Ustadz Fauzan untuk mengisi kajian, tabligh akbar, atau konsultasi syariah di lembaga Anda.</p>
               </div>
               <a
-                href={waLink}
+                href={emailLink}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-white text-primary-500 hover:bg-surface-50 shadow-sm transition-colors whitespace-nowrap"
               >
-                <FaWhatsapp size={18} /> Hubungi via WhatsApp
+                <Mail size={18} /> test@gmail.com
               </a>
             </div>
           </div>

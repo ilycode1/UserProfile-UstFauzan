@@ -1,13 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { GraduationCap, MapPin, Scale, BookOpen, MessageCircle, BookMarked } from "lucide-react";
+import { GraduationCap, MapPin, Scale, BookOpen, BookMarked, Mail } from "lucide-react";
 import Button from "../components/ui/Button";
 import Badge from "../components/ui/Badge";
 import SectionTitle from "../components/ui/SectionTitle";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import SEO from "../components/SEO";
 import { profil } from "../data/profil";
-import { FaWhatsapp } from "react-icons/fa";
 
 function InstagramIcon({ size = 18 }) {
   return (
@@ -19,7 +18,7 @@ function InstagramIcon({ size = 18 }) {
   );
 }
 
-const waLink = `https://wa.me/62${profil.kontak.wa.replace(/^0/, "")}`;
+const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${profil.kontak.email}`;
 const igLink = `https://instagram.com/${profil.kontak.instagram}`;
 
 const bidangKajian = [
@@ -53,9 +52,6 @@ export default function Profil() {
                   e.currentTarget.style.display = "none";
                 }}
               />
-              <div className="absolute inset-0 flex items-center justify-center text-white/80 pointer-events-none">
-                <GraduationCap size={56} strokeWidth={1.2} />
-              </div>
             </div>
 
             <div className="text-center md:text-left">
@@ -71,8 +67,8 @@ export default function Profil() {
               </div>
 
               <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
-                <Button as="a" href={waLink} target="_blank" rel="noreferrer" variant="primary" size="sm">
-                  <FaWhatsapp size={16} /> WhatsApp
+                <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="primary" size="sm">
+                  <Mail size={16} /> test@gmail.com
                 </Button>
                 <Button as="a" href={igLink} target="_blank" rel="noreferrer" variant="outline" size="sm">
                   <InstagramIcon size={16} /> Instagram
@@ -188,8 +184,8 @@ export default function Profil() {
           <h2 className="font-serif text-3xl md:text-4xl mb-4">Hubungi</h2>
           <p className="text-white/70 max-w-2xl mx-auto mb-8">Untuk undangan kajian, konsultasi, atau pertanyaan seputar dakwah.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button as="a" href={waLink} target="_blank" rel="noreferrer" variant="primary" size="lg">
-              <FaWhatsapp size={18} /> WhatsApp
+            <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="primary" size="lg">
+              <Mail size={18} /> test@gmail.com
             </Button>
             <Button as="a" href={igLink} target="_blank" rel="noreferrer" variant="outline" size="lg" className="!text-white !border-white/40 hover:!bg-white/10">
               <InstagramIcon size={18} /> Instagram

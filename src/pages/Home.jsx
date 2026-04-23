@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { ChevronDown, BookOpen, ArrowRight, MessageCircle, GraduationCap } from "lucide-react";
+import { ChevronDown, BookOpen, ArrowRight, GraduationCap, Mail } from "lucide-react";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
@@ -10,7 +10,6 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 import SEO from "../components/SEO";
 import { profil } from "../data/profil";
 import { materiList } from "../data/materi";
-import { FaWhatsapp } from "react-icons/fa";
 
 function InstagramIcon({ size = 18 }) {
   return (
@@ -22,7 +21,7 @@ function InstagramIcon({ size = 18 }) {
   );
 }
 
-const waLink = `https://wa.me/62${profil.kontak.wa.replace(/^0/, "")}`;
+const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${profil.kontak.email}`;
 const igLink = `https://instagram.com/${profil.kontak.instagram}`;
 
 export default function Home() {
@@ -86,8 +85,8 @@ export default function Home() {
               <Button as="a" href="/kajian" variant="primary" size="lg">
                 <BookOpen size={18} /> Lihat Materi Kajian
               </Button>
-              <Button as="a" href={waLink} target="_blank" rel="noreferrer" variant="outline" size="lg">
-                <FaWhatsapp size={18} /> Hubungi via WhatsApp
+              <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="outline" size="lg">
+                <Mail size={18} /> test@gmail.com
               </Button>
             </motion.div>
           </motion.div>
@@ -168,9 +167,6 @@ export default function Home() {
                     e.currentTarget.style.display = "none";
                   }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center text-white/80 pointer-events-none">
-                  <GraduationCap size={80} strokeWidth={1.2} />
-                </div>
               </div>
             </ScrollReveal>
 
@@ -216,8 +212,8 @@ export default function Home() {
           <h2 className="font-serif text-3xl md:text-4xl mb-4">Terhubung dengan Kami</h2>
           <p className="text-white/70 max-w-2xl mx-auto mb-8">Untuk pertanyaan seputar kajian, undangan dakwah, atau konsultasi, silakan hubungi melalui kanal berikut.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button as="a" href={waLink} target="_blank" rel="noreferrer" variant="primary" size="lg">
-              <FaWhatsapp size={18} /> WhatsApp
+            <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="primary" size="lg">
+              <Mail size={18} /> test@gmail.com
             </Button>
             <Button as="a" href={igLink} target="_blank" rel="noreferrer" variant="outline" size="lg" className="!text-white !border-white/40 hover:!bg-white/10">
               <InstagramIcon size={18} /> Instagram
