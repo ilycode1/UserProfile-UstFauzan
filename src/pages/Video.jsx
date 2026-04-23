@@ -50,7 +50,6 @@ export default function Video() {
     (v) => v.embedId || v.judul || v.thumbnail
   )
   const realVideos = videoList.filter((v) => v.embedId || v.judul)
-  const [featured, ...rest] = realVideos
 
   return (
     <>
@@ -96,25 +95,14 @@ export default function Video() {
               </a>
             </div>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {featured && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.5 }}
-                  className="md:col-span-2 lg:col-span-3"
-                >
-                  <VideoCard video={featured} featured />
-                </motion.div>
-              )}
-              {rest.map((v, idx) => (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {realVideos.map((v, idx) => (
                 <motion.div
                   key={v.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.4, delay: (idx % 6) * 0.05 }}
+                  transition={{ duration: 0.4, delay: (idx % 8) * 0.05 }}
                 >
                   <VideoCard video={v} />
                 </motion.div>

@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Play, ExternalLink, Calendar, Clock } from 'lucide-react'
+import { Play, ExternalLink, ArrowUpRight, Calendar, Clock } from 'lucide-react'
 import Badge from './ui/Badge'
 
 function InstagramIcon({ size = 18 }) {
@@ -23,32 +22,17 @@ function InstagramIcon({ size = 18 }) {
   )
 }
 
-function YouTubeFrame({ video, featured }) {
-  const [playing, setPlaying] = useState(false)
+function YouTubeFrame({ video }) {
   const thumbnail =
     video.thumbnail || `https://img.youtube.com/vi/${video.embedId}/hqdefault.jpg`
 
-  if (playing) {
-    return (
-      <div className="relative aspect-video bg-black">
-        <iframe
-          src={`https://www.youtube.com/embed/${video.embedId}?autoplay=1&rel=0`}
-          title={video.judul || 'Video kajian'}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="absolute inset-0 w-full h-full"
-          loading="lazy"
-        />
-      </div>
-    )
-  }
-
   return (
-    <button
-      type="button"
-      onClick={() => setPlaying(true)}
-      aria-label={`Putar video ${video.judul || ''}`}
-      className="group relative aspect-video bg-surface-100 w-full overflow-hidden"
+    <a
+      href={`https://www.youtube.com/watch?v=${video.embedId}`}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Tonton video ${video.judul || ''} di YouTube`}
+      className="group relative aspect-video bg-surface-100 w-full overflow-hidden block"
     >
       <img
         src={thumbnail}
@@ -57,16 +41,12 @@ function YouTubeFrame({ video, featured }) {
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-      <span
-        className={`absolute inset-0 flex items-center justify-center ${
-          featured ? '' : ''
-        }`}
-      >
-        <span className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary-400 text-white shadow-lg group-hover:scale-110 transition-transform">
-          <Play size={22} fill="currentColor" className="ml-1" />
+      <span className="absolute inset-0 flex items-center justify-center">
+        <span className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-400 text-white shadow-lg group-hover:scale-110 transition-transform">
+          <Play size={20} fill="currentColor" className="ml-0.5" />
         </span>
       </span>
-    </button>
+    </a>
   )
 }
 
@@ -100,39 +80,32 @@ function PlaceholderFrame() {
   )
 }
 
-export default function VideoCard({ video, featured = false }) {
+export default function VideoCard({ video }) {
   const hasEmbed = Boolean(video.embedId)
   const isIG = video.platform === 'instagram'
+  const isYT = video.platform === 'youtube' && hasEmbed
 
   return (
-    <article
-      className={`group bg-white rounded-2xl border border-surface-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col h-full ${
-        featured ? 'lg:col-span-2' : ''
-      }`}
-    >
+    <article className="group bg-white rounded-2xl border border-surface-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col h-full">
       {isIG ? (
         <InstagramFrame video={video} />
       ) : hasEmbed ? (
-        <YouTubeFrame video={video} featured={featured} />
+        <YouTubeFrame video={video} />
       ) : (
         <PlaceholderFrame />
       )}
 
-      <div className="p-5 flex flex-col flex-1">
+      <div className="p-4 flex flex-col flex-1">
         {video.kategori && (
           <div className="mb-2">
             <Badge category={video.kategori}>{video.kategori}</Badge>
           </div>
         )}
-        <h3
-          className={`font-serif text-dark-800 leading-snug ${
-            featured ? 'text-xl md:text-2xl' : 'text-base md:text-lg'
-          }`}
-        >
+        <h3 className="font-serif text-dark-800 leading-snug text-base md:text-lg line-clamp-2">
           {video.judul || 'Judul akan segera ditambahkan'}
         </h3>
         {(video.tanggal || video.durasi) && (
-          <div className="flex items-center gap-4 mt-3 text-xs text-dark-700/80">
+          <div className="flex items-center gap-4 mt-2 text-xs text-dark-700/80">
             {video.tanggal && (
               <span className="inline-flex items-center gap-1">
                 <Calendar size={12} /> {video.tanggal}
@@ -144,6 +117,17 @@ export default function VideoCard({ video, featured = false }) {
               </span>
             )}
           </div>
+        )}
+        {isYT && (
+          <a
+            href={`https://www.youtube.com/watch?v=${video.embedId}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors self-start"
+          >
+            Lihat video di YouTube
+            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         )}
       </div>
     </article>

@@ -84,7 +84,7 @@ export const profil = {
   ],
   organisasi: [],
   kontak: {
-    wa: "085568057474",
+    wa: "08568057474",
     instagram: "fauzan.sugiyono",
     youtube: "",
     telegram: "",
