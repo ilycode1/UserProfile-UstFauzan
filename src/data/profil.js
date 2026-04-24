@@ -84,7 +84,7 @@ export const profil = {
   ],
   organisasi: [],
   kontak: {
-    email: "test@gmail.com",
+    email: "fauzanstiudia@gmail.com",
     instagram: "fauzan.sugiyono",
     youtube: "",
     telegram: "",

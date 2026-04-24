@@ -68,7 +68,7 @@ export default function Profil() {
 
               <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
                 <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="primary" size="sm">
-                  <Mail size={16} /> test@gmail.com
+                  <Mail size={16} /> fauzanstiudia@gmail.com
                 </Button>
                 <Button as="a" href={igLink} target="_blank" rel="noreferrer" variant="outline" size="sm">
                   <InstagramIcon size={16} /> Instagram
@@ -185,7 +185,7 @@ export default function Profil() {
           <p className="text-white/70 max-w-2xl mx-auto mb-8">Untuk undangan kajian, konsultasi, atau pertanyaan seputar dakwah.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="primary" size="lg">
-              <Mail size={18} /> test@gmail.com
+              <Mail size={18} /> fauzanstiudia@gmail.com
             </Button>
             <Button as="a" href={igLink} target="_blank" rel="noreferrer" variant="outline" size="lg" className="!text-white !border-white/40 hover:!bg-white/10">
               <InstagramIcon size={18} /> Instagram

@@ -49,8 +49,8 @@ export default function Footer() {
             <h3 className="font-serif text-lg mb-3">Kontak</h3>
             <ul className="flex flex-col gap-3">
               <li>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=test@gmail.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-primary-200 transition-colors">
-                  <MdEmail size={16} /> test@gmail.com
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fauzanstiudia@gmail.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-primary-200 transition-colors">
+                  <MdEmail size={16} /> fauzanstiudia@gmail.com
                 </a>
               </li>
               <li>

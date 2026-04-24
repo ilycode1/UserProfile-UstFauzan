@@ -106,7 +106,7 @@ export default function Kegiatan() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-white text-primary-500 hover:bg-surface-50 shadow-sm transition-colors whitespace-nowrap"
               >
-                <Mail size={18} /> test@gmail.com
+                <Mail size={18} /> fauzanstiudia@gmail.com
               </a>
             </div>
           </div>

@@ -86,7 +86,7 @@ export default function Home() {
                 <BookOpen size={18} /> Lihat Materi Kajian
               </Button>
               <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="outline" size="lg">
-                <Mail size={18} /> test@gmail.com
+                <Mail size={18} /> fauzanstiudia@gmail.com
               </Button>
             </motion.div>
           </motion.div>
@@ -213,7 +213,7 @@ export default function Home() {
           <p className="text-white/70 max-w-2xl mx-auto mb-8">Untuk pertanyaan seputar kajian, undangan dakwah, atau konsultasi, silakan hubungi melalui kanal berikut.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button as="a" href={emailLink} target="_blank" rel="noreferrer" variant="primary" size="lg">
-              <Mail size={18} /> test@gmail.com
+              <Mail size={18} /> fauzanstiudia@gmail.com
             </Button>
             <Button as="a" href={igLink} target="_blank" rel="noreferrer" variant="outline" size="lg" className="!text-white !border-white/40 hover:!bg-white/10">
               <InstagramIcon size={18} /> Instagram

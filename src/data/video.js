@@ -9,4 +9,14 @@ export const videoList = [
     durasi: "",
     tanggal: "",
   },
+  {
+    id: 2,
+    judul: "",
+    platform: "instagram",
+    embedId: "DWIJI2tDxXn",
+    thumbnail: "",
+    kategori: "",
+    durasi: "",
+    tanggal: "",
+  },
 ];
